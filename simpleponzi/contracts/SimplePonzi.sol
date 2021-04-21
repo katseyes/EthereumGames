@@ -15,6 +15,6 @@ contract SimplePonzi
         currentInvestor = msg.sender;
         currentInvestment = msg.value;
         // payout previous investor
-        previousInvestor.transfer(msg.value);
+        previousInvestor.transfer(msg.value); 
     }
 }
