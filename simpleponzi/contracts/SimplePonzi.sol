@@ -5,6 +5,12 @@ contract SimplePonzi
     address payable public currentInvestor;
     uint public currentInvestment = 0;
     
+    //Declare an Event
+    event Deposit(address indexed _from, uint _value);
+
+
+
+
     fallback () external payable 
     {
         // new investments must be 10% greater than current
@@ -16,5 +22,8 @@ contract SimplePonzi
         currentInvestment = msg.value;
         // payout previous investor
         previousInvestor.transfer(msg.value);
+
+        //Emit an event
+        emit Deposit(msg.sender, msg.value);
     }
 }

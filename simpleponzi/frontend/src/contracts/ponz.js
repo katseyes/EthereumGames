@@ -2,7 +2,7 @@
 import Artifact from './SimplePonzi/SimplePonzi.json';
 import Deploys from './SimplePonzi/Deploys.json';
 import {getWeb3, getAccount, getNetwork} from '../eth/network.js';
-import { getGasPrice } from '../eth/gasPrice';
+//import { getGasPrice } from '../eth/gasPrice';
 import BN from 'bignumber.js';
 
 
@@ -19,7 +19,7 @@ export async function getDeployed() {
     const from = await getAccount();
     const network = await getNetwork();
     var idfixed = network;
-    if (network == 5777)
+    if (network == 5777) 
         idfixed = 1337;
     const address = Deploys[idfixed];
     if (!address) throw new Error(`Could not find address for contract in network ${network}`);

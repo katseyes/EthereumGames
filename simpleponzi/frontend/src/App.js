@@ -27,12 +27,14 @@ class App extends Component
     return (
       <div className="App">
       { (hasProvider() && contract && sender)
-      ? <SimplePonziComp contract={contract} owner={sender}/>
+      ? <SimplePonziComp contract={contract} owner={sender} key={sender} />
       : <div>Please enable Metamask and reload</div>
       }
       </div>
     );
   }
+
+ 
 }
 // import logo from './logo.svg';
 // import './App.css';
