@@ -35,3 +35,6 @@ export async function getBlockNumber() {
 export async function getNetwork() {
     return web3.eth.net.getId();
 }
+
+
+

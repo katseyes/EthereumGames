@@ -22,6 +22,11 @@ export async function getDeployed() {
     if (network == 5777) 
         idfixed = 1337;
     const address = Deploys[idfixed];
-    if (!address) throw new Error(`Could not find address for contract in network ${network}`);
+    if (!address) 
+    {
+        //throw new Error(`Could not find address for contract in network ${network}`);
+        return null;
+    }
+
     return SimplePonzi(web3, address, { from });
 }

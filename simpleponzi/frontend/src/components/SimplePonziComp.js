@@ -184,7 +184,7 @@ class SimplePonziComp extends Component {
         {/* <input type="numeric" value={value}
         onChange={this.handleChange} />
         <button disabled={!mintable}>Invest</button> */}
-        <h1>Simple Ponzi</h1>
+        <h1>SP</h1>
         <p>Your account: {this.props.owner}</p>
         <p>current investor: {this.state.currentInvestor}</p>
         <p>current investment: {this.state.currentInvestment}</p>

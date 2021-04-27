@@ -20,14 +20,29 @@ class App extends Component
       window.ethereum.on('accountsChanged', async (accounts)=>{
         this.setState({ sender: accounts[0] });
         });
+
+
+        window.ethereum.on('chainChanged', (chainId) => {
+          // Handle the new chain.
+          // Correctly handling chain changes can be complicated.
+          // We recommend reloading the page unless you have good reason not to.
+          window.location.reload();
+        });
     }
   }
   render() {
     const { contract, sender } = this.state;
     return (
+      // <div className="App">
+      // { (hasProvider() && contract && sender)
+      // ? <SimplePonziComp contract={contract} owner={sender} key={sender} />
+      // : <div>Please enable Metamask and reload</div>
+      // }
+      // </div>
+
       <div className="App">
-      { (hasProvider() && contract && sender)
-      ? <SimplePonziComp contract={contract} owner={sender} key={sender} />
+      { (hasProvider() && sender)
+      ? ((contract)?(<SimplePonziComp contract={contract} owner={sender} key={sender} />):<div>Contract not found make sure you are on the right network</div>)
       : <div>Please enable Metamask and reload</div>
       }
       </div>
